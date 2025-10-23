@@ -22,23 +22,16 @@ public class CorsConfig {
         CorsConfiguration config = new CorsConfiguration();
         
         // Allow credentials (cookies, authorization headers, etc.)
-        config.setAllowCredentials(true);
+        config.setAllowCredentials(false); // Set to false for now to allow wildcards
         
-        // Allow requests from frontend (development and production)
-        config.setAllowedOrigins(Arrays.asList(
-            "http://localhost:3000",  // Next.js dev server
-            "http://localhost:3001",  // Alternative port
-            "http://localhost:3002",  // Alternative port
-            "http://192.168.2.7:3000" // Network access
-        ));
+        // Allow all origins (for development)
+        config.addAllowedOriginPattern("*");
         
         // Allow all HTTP methods
-        config.setAllowedMethods(Arrays.asList(
-            "GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS", "HEAD"
-        ));
+        config.addAllowedMethod("*");
         
         // Allow all headers
-        config.setAllowedHeaders(Arrays.asList("*"));
+        config.addAllowedHeader("*");
         
         // Expose headers to the browser
         config.setExposedHeaders(Arrays.asList(
