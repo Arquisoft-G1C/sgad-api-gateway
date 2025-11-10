@@ -22,7 +22,7 @@ public class GatewayConfig {
                 .filter(FilterFunctions.stripPrefix(0))
                 .build()
             .and(route("match-management")
-                .route(RequestPredicates.path("/matches/**"), HandlerFunctions.http("http://match-service:8000"))
+                .route(RequestPredicates.path("/matches/**"), HandlerFunctions.http("http://match-service:8001"))
                 .filter(FilterFunctions.stripPrefix(0))
                 .build())
             .and(route("referee-management")
